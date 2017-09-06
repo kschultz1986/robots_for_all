@@ -1,0 +1,6 @@
+global_costmap:
+  map_type: costmap
+  global_frame: /map
+  robot_base_frame: base_link
+  static_map: true
+

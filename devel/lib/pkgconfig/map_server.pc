@@ -1,0 +1,8 @@
+prefix=/home/karl/catkin_ws/devel
+
+Name: map_server
+Description: Description of map_server
+Version: 1.15.1
+Cflags: -I/home/karl/catkin_ws/src/navigation/map_server/include
+Libs: -L/home/karl/catkin_ws/devel/lib -lmap_server_image_loader
+Requires: roscpp nav_msgs tf2

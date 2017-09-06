@@ -1,0 +1,8 @@
+prefix=/home/karl/catkin_ws/devel
+
+Name: dwa_local_planner
+Description: Description of dwa_local_planner
+Version: 1.15.1
+Cflags: -I/home/karl/catkin_ws/devel/include -I/home/karl/catkin_ws/src/navigation/dwa_local_planner/include
+Libs: -L/home/karl/catkin_ws/devel/lib -ldwa_local_planner
+Requires: dynamic_reconfigure nav_msgs pluginlib roscpp

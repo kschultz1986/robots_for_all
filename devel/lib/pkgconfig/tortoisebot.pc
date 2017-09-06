@@ -1,0 +1,8 @@
+prefix=/home/karl/catkin_ws/devel
+
+Name: tortoisebot
+Description: Description of tortoisebot
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/karl/catkin_ws/devel/lib 
+Requires: 
