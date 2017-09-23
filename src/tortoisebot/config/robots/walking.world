@@ -1,0 +1,512 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <world name="default">
+
+    <!-- A global light source -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+    <!-- A ground plane -->
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+		<model name="robot">
+
+			<!--<link name="abdomen">
+
+				<pose>0 0 0.5 0 0 0</pose>
+				<inertial>
+		      <mass>1.0</mass>
+		      <inertia>
+		        <ixx>0.083</ixx>
+		        <ixy>0.0</ixy>
+		        <ixz>0.0</ixz>
+		        <iyy>0.083</iyy>
+		        <iyz>0.0</iyz>
+		        <izz>0.083</izz>
+		      </inertia>
+      	</inertial>
+				<collision name="abdomen_collision">
+					<geometry>
+						<box>
+							<size>2 1 1</size>
+						</box>
+					</geometry>
+				</collision>
+				<visual name="abdomen_visual">
+					<geometry>
+						<box>
+							<size>1 1 1</size>
+						</box>
+					</geometry>
+				</visual>
+
+			</link>-->
+
+			<link name="RFoot">
+
+				<pose>0.25 -0.875 0.125 0 0 0</pose>
+				<inertial>
+		      <mass>1.0</mass>
+		      <inertia> <!-- interias are tricky to compute -->
+		        <!-- http://answers.gazebosim.org/question/4372/the-inertia-matrix-explained/ -->
+		        <ixx>0.083</ixx>       <!-- for a box: ixx = 0.083 * mass * (y*y + z*z) -->
+		        <ixy>0.0</ixy>         <!-- for a box: ixy = 0 -->
+		        <ixz>0.0</ixz>         <!-- for a box: ixz = 0 -->
+		        <iyy>0.083</iyy>       <!-- for a box: iyy = 0.083 * mass * (x*x + z*z) -->
+		        <iyz>0.0</iyz>         <!-- for a box: iyz = 0 -->
+		        <izz>0.083</izz>       <!-- for a box: izz = 0.083 * mass * (x*x + y*y) -->
+		      </inertia>
+      	</inertial>
+				<collision name="RFoot_collision">
+					<geometry>
+						<box>
+							<size>1.5 0.75 0.25</size>
+						</box>
+					</geometry>
+				</collision>
+				<visual name="RFoot_visual">
+					<geometry>
+						<box>
+							<size>1.5 0.75 0.25</size>
+						</box>
+					</geometry>
+				</visual>
+
+			</link>
+
+			<link name="LFoot">
+
+				<pose>0.25 0.875 0.125 0 0 0</pose>
+				<inertial>
+		      <mass>1.0</mass>
+		      <inertia> <!-- interias are tricky to compute -->
+		        <!-- http://answers.gazebosim.org/question/4372/the-inertia-matrix-explained/ -->
+		        <ixx>0.083</ixx>       <!-- for a box: ixx = 0.083 * mass * (y*y + z*z) -->
+		        <ixy>0.0</ixy>         <!-- for a box: ixy = 0 -->
+		        <ixz>0.0</ixz>         <!-- for a box: ixz = 0 -->
+		        <iyy>0.083</iyy>       <!-- for a box: iyy = 0.083 * mass * (x*x + z*z) -->
+		        <iyz>0.0</iyz>         <!-- for a box: iyz = 0 -->
+		        <izz>0.083</izz>       <!-- for a box: izz = 0.083 * mass * (x*x + y*y) -->
+		      </inertia>
+      	</inertial>
+				<collision name="LFoot_collision">
+					<geometry>
+						<box>
+							<size>1.5 0.75 0.25</size>
+						</box>
+					</geometry>
+				</collision>
+				<visual name="LFoot_visual">
+					<geometry>
+						<box>
+							<size>1.5 0.75 0.25</size>
+						</box>
+					</geometry>
+				</visual>
+
+			</link>
+
+			<link name="RTibia">
+
+				<pose>0.0 -0.875 1.125 0 0 0</pose>
+				<inertial>
+		      <mass>1.0</mass>
+		      <inertia> <!-- interias are tricky to compute -->
+		        <!-- http://answers.gazebosim.org/question/4372/the-inertia-matrix-explained/ -->
+		        <ixx>0.083</ixx>       <!-- for a box: ixx = 0.083 * mass * (y*y + z*z) -->
+		        <ixy>0.0</ixy>         <!-- for a box: ixy = 0 -->
+		        <ixz>0.0</ixz>         <!-- for a box: ixz = 0 -->
+		        <iyy>0.083</iyy>       <!-- for a box: iyy = 0.083 * mass * (x*x + z*z) -->
+		        <iyz>0.0</iyz>         <!-- for a box: iyz = 0 -->
+		        <izz>0.083</izz>       <!-- for a box: izz = 0.083 * mass * (x*x + y*y) -->
+		      </inertia>
+      	</inertial>
+				<collision name="RTibia_collision">
+					<geometry>
+						<box>
+							<size>0.5 0.5 2.25</size>
+						</box>
+					</geometry>
+				</collision>
+				<visual name="RTibia_visual">
+					<geometry>
+						<box>
+							<size>0.5 0.5 2.25</size>
+						</box>
+					</geometry>
+				</visual>
+
+			</link>
+
+			<link name="LTibia">
+
+				<pose>0.0 0.875 1.125 0 0 0</pose>
+				<inertial>
+		      <mass>1.0</mass>
+		      <inertia> <!-- interias are tricky to compute -->
+		        <!-- http://answers.gazebosim.org/question/4372/the-inertia-matrix-explained/ -->
+		        <ixx>0.083</ixx>       <!-- for a box: ixx = 0.083 * mass * (y*y + z*z) -->
+		        <ixy>0.0</ixy>         <!-- for a box: ixy = 0 -->
+		        <ixz>0.0</ixz>         <!-- for a box: ixz = 0 -->
+		        <iyy>0.083</iyy>       <!-- for a box: iyy = 0.083 * mass * (x*x + z*z) -->
+		        <iyz>0.0</iyz>         <!-- for a box: iyz = 0 -->
+		        <izz>0.083</izz>       <!-- for a box: izz = 0.083 * mass * (x*x + y*y) -->
+		      </inertia>
+      	</inertial>
+				<collision name="LTibia_collision">
+					<geometry>
+						<box>
+							<size>0.5 0.5 2.25</size>
+						</box>
+					</geometry>
+				</collision>
+				<visual name="LTibia_visual">
+					<geometry>
+						<box>
+							<size>0.5 0.5 2.25</size>
+						</box>
+					</geometry>
+				</visual>
+
+			</link>
+
+			<link name="RFemur">
+
+				<pose>0.0 -0.875 3.125 0 0 0</pose>
+				<inertial>
+		      <mass>1.0</mass>
+		      <inertia> <!-- interias are tricky to compute -->
+		        <!-- http://answers.gazebosim.org/question/4372/the-inertia-matrix-explained/ -->
+		        <ixx>0.083</ixx>       <!-- for a box: ixx = 0.083 * mass * (y*y + z*z) -->
+		        <ixy>0.0</ixy>         <!-- for a box: ixy = 0 -->
+		        <ixz>0.0</ixz>         <!-- for a box: ixz = 0 -->
+		        <iyy>0.083</iyy>       <!-- for a box: iyy = 0.083 * mass * (x*x + z*z) -->
+		        <iyz>0.0</iyz>         <!-- for a box: iyz = 0 -->
+		        <izz>0.083</izz>       <!-- for a box: izz = 0.083 * mass * (x*x + y*y) -->
+		      </inertia>
+      	</inertial>
+				<collision name="RFemur_collision">
+					<geometry>
+						<box>
+							<size>0.6 0.6 2.25</size>
+						</box>
+					</geometry>
+				</collision>
+				<visual name="RFemur_visual">
+					<geometry>
+						<box>
+							<size>0.6 0.6 2.25</size>
+						</box>
+					</geometry>
+				</visual>
+
+			</link>
+
+			<link name="LFemur">
+
+				<pose>0.0 0.875 3.125 0 0 0</pose>
+				<inertial>
+		      <mass>1.0</mass>
+		      <inertia> <!-- interias are tricky to compute -->
+		        <!-- http://answers.gazebosim.org/question/4372/the-inertia-matrix-explained/ -->
+		        <ixx>0.083</ixx>       <!-- for a box: ixx = 0.083 * mass * (y*y + z*z) -->
+		        <ixy>0.0</ixy>         <!-- for a box: ixy = 0 -->
+		        <ixz>0.0</ixz>         <!-- for a box: ixz = 0 -->
+		        <iyy>0.083</iyy>       <!-- for a box: iyy = 0.083 * mass * (x*x + z*z) -->
+		        <iyz>0.0</iyz>         <!-- for a box: iyz = 0 -->
+		        <izz>0.083</izz>       <!-- for a box: izz = 0.083 * mass * (x*x + y*y) -->
+		      </inertia>
+      	</inertial>
+				<collision name="LFemur_collision">
+					<geometry>
+						<box>
+							<size>0.6 0.6 2.25</size>
+						</box>
+					</geometry>
+				</collision>
+				<visual name="LFemur_visual">
+					<geometry>
+						<box>
+							<size>0.6 0.6 2.25</size>
+						</box>
+					</geometry>
+				</visual>
+
+			</link>
+
+			<link name="Abdomen">
+
+				<pose>0.0 0.0 4.5 0 0 0</pose>
+				<inertial>
+		      <mass>1.0</mass>
+		      <inertia> <!-- interias are tricky to compute -->
+		        <!-- http://answers.gazebosim.org/question/4372/the-inertia-matrix-explained/ -->
+		        <ixx>0.083</ixx>       <!-- for a box: ixx = 0.083 * mass * (y*y + z*z) -->
+		        <ixy>0.0</ixy>         <!-- for a box: ixy = 0 -->
+		        <ixz>0.0</ixz>         <!-- for a box: ixz = 0 -->
+		        <iyy>0.083</iyy>       <!-- for a box: iyy = 0.083 * mass * (x*x + z*z) -->
+		        <iyz>0.0</iyz>         <!-- for a box: iyz = 0 -->
+		        <izz>0.083</izz>       <!-- for a box: izz = 0.083 * mass * (x*x + y*y) -->
+		      </inertia>
+      	</inertial>
+				<collision name="Abdomen_collision">
+					<geometry>
+						<box>
+							<size>1.0 2.5 1.0</size>
+						</box>
+					</geometry>
+				</collision>
+				<visual name="Abdomen_visual">
+					<geometry>
+						<box>
+							<size>1.0 2.5 1.0</size>
+						</box>
+					</geometry>
+				</visual>
+
+			</link>
+
+			<link name="Torso">
+
+				<pose>0.0 0.0 5.875 0 0 0</pose>
+				<inertial>
+		      <mass>1.0</mass>
+		      <inertia> <!-- interias are tricky to compute -->
+		        <!-- http://answers.gazebosim.org/question/4372/the-inertia-matrix-explained/ -->
+		        <ixx>0.083</ixx>       <!-- for a box: ixx = 0.083 * mass * (y*y + z*z) -->
+		        <ixy>0.0</ixy>         <!-- for a box: ixy = 0 -->
+		        <ixz>0.0</ixz>         <!-- for a box: ixz = 0 -->
+		        <iyy>0.083</iyy>       <!-- for a box: iyy = 0.083 * mass * (x*x + z*z) -->
+		        <iyz>0.0</iyz>         <!-- for a box: iyz = 0 -->
+		        <izz>0.083</izz>       <!-- for a box: izz = 0.083 * mass * (x*x + y*y) -->
+		      </inertia>
+      	</inertial>
+				<collision name="Torso_collision">
+					<geometry>
+						<box>
+							<size>1.0 2.5 2.5</size>
+						</box>
+					</geometry>
+				</collision>
+				<visual name="Torso_visual">
+					<geometry>
+						<box>
+							<size>1.0 2.5 2.5</size>
+						</box>
+					</geometry>
+				</visual>
+
+			</link>
+
+			<link name="Neck">
+
+				<pose>0.0 0.0 7.25 0 0 0</pose>
+				<inertial>
+		      <mass>1.0</mass>
+		      <inertia> <!-- interias are tricky to compute -->
+		        <!-- http://answers.gazebosim.org/question/4372/the-inertia-matrix-explained/ -->
+		        <ixx>0.083</ixx>       <!-- for a box: ixx = 0.083 * mass * (y*y + z*z) -->
+		        <ixy>0.0</ixy>         <!-- for a box: ixy = 0 -->
+		        <ixz>0.0</ixz>         <!-- for a box: ixz = 0 -->
+		        <iyy>0.083</iyy>       <!-- for a box: iyy = 0.083 * mass * (x*x + z*z) -->
+		        <iyz>0.0</iyz>         <!-- for a box: iyz = 0 -->
+		        <izz>0.083</izz>       <!-- for a box: izz = 0.083 * mass * (x*x + y*y) -->
+		      </inertia>
+      	</inertial>
+				<collision name="Neck_collision">
+					<geometry>
+						<box>
+							<size>0.75 0.75 0.5</size>
+						</box>
+					</geometry>
+				</collision>
+				<visual name="Neck_visual">
+					<geometry>
+						<box>
+							<size>0.75 0.75 0.5</size>
+						</box>
+					</geometry>
+				</visual>
+
+			</link>
+
+			<link name="Head">
+
+				<pose>0.0 0.0 7.75 0 0 0</pose>
+				<inertial>
+		      <mass>1.0</mass>
+		      <inertia> <!-- interias are tricky to compute -->
+		        <!-- http://answers.gazebosim.org/question/4372/the-inertia-matrix-explained/ -->
+		        <ixx>0.083</ixx>       <!-- for a box: ixx = 0.083 * mass * (y*y + z*z) -->
+		        <ixy>0.0</ixy>         <!-- for a box: ixy = 0 -->
+		        <ixz>0.0</ixz>         <!-- for a box: ixz = 0 -->
+		        <iyy>0.083</iyy>       <!-- for a box: iyy = 0.083 * mass * (x*x + z*z) -->
+		        <iyz>0.0</iyz>         <!-- for a box: iyz = 0 -->
+		        <izz>0.083</izz>       <!-- for a box: izz = 0.083 * mass * (x*x + y*y) -->
+		      </inertia>
+      	</inertial>
+				<collision name="Head_collision">
+					<geometry>
+						<box>
+							<size>1.0 1.0 1.0</size>
+						</box>
+					</geometry>
+				</collision>
+				<visual name="Head_visual">
+					<geometry>
+						<box>
+							<size>1.0 1.0 1.0</size>
+						</box>
+					</geometry>
+				</visual>
+
+			</link>
+
+			<joint type="revolute" name="joint">
+				<pose>0 0 6.875 0 0 0</pose>
+				<parent>Neck</parent>
+				<child>Head</child>
+				<axis>
+					<xyz>1 0 0</xyz>
+					<limit>
+						<lower>-10000000000000000</lower>
+						<upper>10000000000000000</upper>
+					</limit>
+				</axis>
+			</joint>
+
+			<link name="RHumerus">
+
+				<pose>0.0 -1.55 6.0 0 0 0</pose>
+				<inertial>
+		      <mass>1.0</mass>
+		      <inertia> <!-- interias are tricky to compute -->
+		        <!-- http://answers.gazebosim.org/question/4372/the-inertia-matrix-explained/ -->
+		        <ixx>0.083</ixx>       <!-- for a box: ixx = 0.083 * mass * (y*y + z*z) -->
+		        <ixy>0.0</ixy>         <!-- for a box: ixy = 0 -->
+		        <ixz>0.0</ixz>         <!-- for a box: ixz = 0 -->
+		        <iyy>0.083</iyy>       <!-- for a box: iyy = 0.083 * mass * (x*x + z*z) -->
+		        <iyz>0.0</iyz>         <!-- for a box: iyz = 0 -->
+		        <izz>0.083</izz>       <!-- for a box: izz = 0.083 * mass * (x*x + y*y) -->
+		      </inertia>
+      	</inertial>
+				<collision name="RHumerus_collision">
+					<geometry>
+						<box>
+							<size>0.6 0.6 1.5</size>
+						</box>
+					</geometry>
+				</collision>
+				<visual name="RHumerus_visual">
+					<geometry>
+						<box>
+							<size>0.6 0.6 1.5</size>
+						</box>
+					</geometry>
+				</visual>
+
+			</link>
+
+			<link name="LHumerus">
+
+				<pose>0.0 1.55 6.0 0 0 0</pose>
+				<inertial>
+		      <mass>1.0</mass>
+		      <inertia> <!-- interias are tricky to compute -->
+		        <!-- http://answers.gazebosim.org/question/4372/the-inertia-matrix-explained/ -->
+		        <ixx>0.083</ixx>       <!-- for a box: ixx = 0.083 * mass * (y*y + z*z) -->
+		        <ixy>0.0</ixy>         <!-- for a box: ixy = 0 -->
+		        <ixz>0.0</ixz>         <!-- for a box: ixz = 0 -->
+		        <iyy>0.083</iyy>       <!-- for a box: iyy = 0.083 * mass * (x*x + z*z) -->
+		        <iyz>0.0</iyz>         <!-- for a box: iyz = 0 -->
+		        <izz>0.083</izz>       <!-- for a box: izz = 0.083 * mass * (x*x + y*y) -->
+		      </inertia>
+      	</inertial>
+				<collision name="LHumerus_collision">
+					<geometry>
+						<box>
+							<size>0.6 0.6 1.5</size>
+						</box>
+					</geometry>
+				</collision>
+				<visual name="LHumerus_visual">
+					<geometry>
+						<box>
+							<size>0.6 0.6 1.5</size>
+						</box>
+					</geometry>
+				</visual>
+
+			</link>
+
+			<link name="RForearm">
+
+				<pose>0.0 -1.55 4.5 0 0 0</pose>
+				<inertial>
+		      <mass>1.0</mass>
+		      <inertia> <!-- interias are tricky to compute -->
+		        <!-- http://answers.gazebosim.org/question/4372/the-inertia-matrix-explained/ -->
+		        <ixx>0.083</ixx>       <!-- for a box: ixx = 0.083 * mass * (y*y + z*z) -->
+		        <ixy>0.0</ixy>         <!-- for a box: ixy = 0 -->
+		        <ixz>0.0</ixz>         <!-- for a box: ixz = 0 -->
+		        <iyy>0.083</iyy>       <!-- for a box: iyy = 0.083 * mass * (x*x + z*z) -->
+		        <iyz>0.0</iyz>         <!-- for a box: iyz = 0 -->
+		        <izz>0.083</izz>       <!-- for a box: izz = 0.083 * mass * (x*x + y*y) -->
+		      </inertia>
+      	</inertial>
+				<collision name="RForearm_collision">
+					<geometry>
+						<box>
+							<size>0.5 0.5 1.5</size>
+						</box>
+					</geometry>
+				</collision>
+				<visual name="RHumerus_visual">
+					<geometry>
+						<box>
+							<size>0.5 0.5 1.5</size>
+						</box>
+					</geometry>
+				</visual>
+
+			</link>
+
+			<link name="LForearm">
+
+				<pose>0.0 1.55 4.5 0 0 0</pose>
+				<inertial>
+		      <mass>1.0</mass>
+		      <inertia> <!-- interias are tricky to compute -->
+		        <!-- http://answers.gazebosim.org/question/4372/the-inertia-matrix-explained/ -->
+		        <ixx>0.083</ixx>       <!-- for a box: ixx = 0.083 * mass * (y*y + z*z) -->
+		        <ixy>0.0</ixy>         <!-- for a box: ixy = 0 -->
+		        <ixz>0.0</ixz>         <!-- for a box: ixz = 0 -->
+		        <iyy>0.083</iyy>       <!-- for a box: iyy = 0.083 * mass * (x*x + z*z) -->
+		        <iyz>0.0</iyz>         <!-- for a box: iyz = 0 -->
+		        <izz>0.083</izz>       <!-- for a box: izz = 0.083 * mass * (x*x + y*y) -->
+		      </inertia>
+      	</inertial>
+				<collision name="LForearm_collision">
+					<geometry>
+						<box>
+							<size>0.5 0.5 1.5</size>
+						</box>
+					</geometry>
+				</collision>
+				<visual name="LHumerus_visual">
+					<geometry>
+						<box>
+							<size>0.5 0.5 1.5</size>
+						</box>
+					</geometry>
+				</visual>
+
+			</link>
+
+		</model>
+
+  </world>
+</sdf>
